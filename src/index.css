@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --color-brand-blue: #1d4ed8;
+  --color-brand-blue-dark: #1e3a8a;
+  --color-brand-blue-light: #3b82f6;
+  --color-brand-yellow: #facc15;
+  --color-brand-yellow-dark: #eab308;
+  --color-brand-navy: #0f172a;
+  --color-brand-slate: #475569;
+  --color-brand-cream: #f8fafc;
+  --color-brand-sky: #eff6ff;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-cream font-body text-brand-navy antialiased;
+  }
+
+  ::selection {
+    @apply bg-brand-yellow text-brand-navy;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  .section-pad {
+    @apply px-4 py-20 md:px-8 lg:py-24;
+  }
+
+  .section-label {
+    @apply inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-blue;
+  }
+
+  .glass-nav {
+    @apply border-b border-white/20 bg-white/75 backdrop-blur-xl;
+  }
+
+  .card-glass {
+    @apply rounded-2xl border border-white/60 bg-white/80 shadow-lg shadow-blue-900/5 backdrop-blur-sm;
+  }
+
+  .btn-primary {
+    @apply relative inline-flex cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-xl bg-brand-blue px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-600/25 transition-colors hover:bg-brand-blue-dark md:text-base;
+  }
+
+  .btn-secondary {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border-2 border-brand-blue/20 bg-white px-6 py-3.5 text-sm font-bold text-brand-blue transition-colors hover:border-brand-blue hover:bg-brand-sky md:text-base;
+  }
+
+  .heading-gradient {
+    @apply bg-gradient-to-r from-brand-blue-dark via-brand-blue to-brand-blue-light bg-clip-text text-transparent;
+  }
+
+  .img-cover {
+    @apply h-full w-full object-cover;
+  }
+}
+
+@media (pointer: fine) {
+  body.custom-cursor {
+    cursor: none;
+  }
+
+  body.custom-cursor a,
+  body.custom-cursor button,
+  body.custom-cursor [role="button"] {
+    cursor: none;
+  }
+}
